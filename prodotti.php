@@ -8,8 +8,8 @@
 		<?php include("header.php"); ?>
 		
 		<DIV id='content'>
-			<INPUT id='search_field' name='search' placeholder='Search...' type='text'>
-			<INPUT name='search_button' id='search_button' type='submit'>
+			<INPUT id='search_field' name='search' placeholder='Cerca...' type='text'></INPUT>
+			<INPUT name='search_button' id='search_button' type='submit' value=''></INPUT>
 			<BR><BR>
 			<?php $product = new ProductCard("board","Una fantastica tavola","","39.90","","",12);?>
 		</DIV>

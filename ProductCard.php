@@ -1,6 +1,7 @@
 <STYLE>
 .product_card
 {
+	box-shadow: 2px 4px 30px #202020;
 	width: 220px;
 	height: 300px;
 	background-color: #EFEFEF;
@@ -41,8 +42,8 @@
   font-size: 18px;
   position: absolute;
   overflow: hidden;
-  top: 50%;
-  left: 50%;
+  bottom: 25%;
+  left: 20%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 }
