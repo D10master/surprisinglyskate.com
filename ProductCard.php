@@ -5,24 +5,26 @@
 	height: 160px;
 	background-color: #EFEFEF;
 	border-radius: 2px;
+	text-decoration: none;
 }
 
-image
+.image
 {
 	position: static;
-	top: 0px;
-	width: 100%;
-	height: 70%;
+	top: 0%
+	max-width: 100%;
+	max-height: 70%;
 	
 }
 
 .content
 {
 	position: static;
-	bottom: 0px;
+	bottom: 0%;
 	width: 100%;
 	height: 30%;
 	background-color: #CCCCCC;
+	text-decoration: none;
 }
 
 .hidden_content
@@ -44,10 +46,10 @@ image
 		
 		public function __construct($name,$description,$image,$price,$producer,$category,$stock)
 		{
-			echo"<div class='product_card' href=''>";
-				echo"<image src=''> </image>";
+			echo"<a href=''><div class='product_card' href=''>";
+				echo"<image class='image' src='skate.jpg'> </image>";
 				echo"<div class='content'>".$name."</div>";
-			echo"</div>";
+			echo"</div> <a>";
 		}
 	}
 ?>
