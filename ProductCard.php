@@ -10,6 +10,7 @@
 	background-color: #EFEFEF;
 	border-radius: 2px;
 	text-decoration: none;
+	border-radius: 6px;
 }
 .image {
   display: block;
@@ -17,23 +18,25 @@
   height: auto;
 }
 
-.container {
+.top {
   display: block;
   position: relative;
   width: auto;
   height:auto;
 }
 
-.container:hover .overlay {
+.top:hover .overlay 
+{
   height: 100%;
 }
 
-.overlay {
+.overlay 
+{
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgb(90,90,90,0.5);
+  background-color: rgb(0,140,255,0.55);
   overflow: hidden;
   width: 100%;
   height: 0;
@@ -43,17 +46,32 @@
 .price {
   white-space: nowrap; 
   color: white;
-  font-size: 18px;
+  font-size: 20px;
   position: absolute;
   overflow: hidden;
-  bottom: 25%;
-  left: 20%;
+  top: 10%;
+  left: 17%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.description {
+  word-wrap: break-word;
+  color: white;
+  font-size: 16px;
+  font-style: italic;
+  text-align: right;
+  font-family:Courier New;
+  position: relative;
+  //overflow: hidden;
+  top: 20%;
+  left: 2%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 }
 
 //parte inferiore che contiene il nome ed il produttore
-.description
+.bottom
 {
 	position: static;
 	bottom: 0%;
@@ -68,7 +86,7 @@
 	float: left;
 	width:auto;
 	color: black;
-	font-size: 18pt;
+	font-size: 20pt;
 	font-weight: bold;
 	margin: 5px;
 }
@@ -78,7 +96,7 @@
 	float:left;
 	width:80%;
 	color: black;
-	font-size: 14pt;
+	font-size: 12pt;
 	font-weight: bold;
 	margin: 5px;
 	font-style: italic;
@@ -110,16 +128,17 @@
 		{
 			echo"<a href=''>";
 				echo"<div class='product_card' href=''>";
-					echo"<div class='container'>";
+					echo"<div class='top'>";
 						echo"<image class='image' src='skate.jpg'>";
 						echo"<div class='overlay'>";
-							echo"<div class='price'>".$price."$</div>";
+							echo"<span class='price'>".$price."$</span>";
+							echo"<span class='description'>".$description."</span>";
 						echo"</div>"; //overlay
-					echo"</div>";// container
-					echo"<div class='description'>";
-						echo "<div class='name'>".$name."</div>";
+					echo"</div>";// top
+					echo"<div class='bottom'>";
+						echo "<span class='name'>".$name."</span>";
 						echo "<div style='float: left; position:relative; top:13px; background-color:rgb(0,200,30); border:2px black; border-radius:7px; width:14px; height:14px;'></div>";
-						echo "<div class='producer'>".$producer."</div>";
+						echo "<span class='producer'>".$producer."</span>";
 					echo"</div>";	
 				echo"</div>";
 			echo"</a>";

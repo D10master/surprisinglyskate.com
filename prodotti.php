@@ -37,7 +37,7 @@
 				$n=50;
 				for($i=0; $i<$n; $i++)
 				{
-					$product = new ProductCard("board","Una fantastica tavola","","39.90","produttore","",12);
+					$product = new ProductCard("board","Una fantastica tavola, ultra leggera perfetta per sfrecciare a massima velocità","","39.90","produttore","",12);
 				}
 			?>
 		</DIV>
