@@ -1,8 +1,8 @@
-CREATE DATABASE skate_ecommerce IF NOT EXIST;
+CREATE DATABASE skate_ecommerce;
 USE skate_ecommerce;
 
 CREATE TABLE clienti(
-id_cliente INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(50) NOT NULL,
 cognome VARCHAR(50) NOT NULL,
 email VARCHAR(50) NOT NULL,
@@ -15,16 +15,16 @@ id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 username VARCHAR(50) NOT NULL,
 password VARCHAR(50) NOT NULL,
 id_cliente INT NOT NULL UNIQUE,
-FOREIGN KEY(id_cliente) REFERENCES cliente(id)
+FOREIGN KEY(id_cliente) REFERENCES clienti(id)
 );
 
 
 CREATE TABLE ordini(
 id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 data DATETIME NOT NULL,
-stato ENUM(’In elaborazione’,’Spedito’,’Ricevuto’),
+stato ENUM('In elaborazione','Spedito','Ricevuto'),
 id_cliente INT NOT NULL,
-FOREIGN KEY(id_cliente) REFERENCES cliente(id)
+FOREIGN KEY(id_cliente) REFERENCES clienti(id)
 );
 
 CREATE TABLE categorie(
@@ -47,8 +47,8 @@ FOREIGN KEY(id_categoria) REFERENCES categorie(id)
 CREATE TABLE dettaglio_ordine(
 id_ordine INT NOT NULL,
 id_prodotto INT NOT NULL,
-FOREIGN KEY (id_ordine) REFERENCES cliente(id_ordine),
-FOREIGN KEY (id_prodotto) REFERENCES prodotto(id_prodotto),
+FOREIGN KEY (id_ordine) REFERENCES ordini(id),
+FOREIGN KEY (id_prodotto) REFERENCES prodotti(id),
 quantita INT NOT NULL
 );
 
