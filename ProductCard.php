@@ -39,8 +39,7 @@
   transition: .5s ease;
 }
 
-.text {
-  display: block;
+.price {
   white-space: nowrap; 
   color: white;
   font-size: 18px;
@@ -55,7 +54,6 @@
 //parte inferiore che contiene il nome ed il produttore
 .description
 {
-	display: block;
 	position: static;
 	bottom: 0%;
 	width: 100%;
@@ -66,11 +64,20 @@
 
 .name
 {
-	display: block;
 	float: left;
-	width:auto%;
+	width:auto;
 	color: black;
 	font-size: 18pt;
+	font-weight: bold;
+	margin: 5px;
+}
+
+.producer
+{
+	float:left;
+	width:80%;
+	color: black;
+	font-size: 14pt;
 	font-weight: bold;
 	margin: 5px;
 }
@@ -104,12 +111,13 @@
 					echo"<div class='container'>";
 						echo"<image class='image' src='skate.jpg'>";
 						echo"<div class='overlay'>";
-							echo"<div class='text'>".$price."$</div>";
+							echo"<div class='price'>".$price."$</div>";
 						echo"</div>"; //overlay
 					echo"</div>";// container
 					echo"<div class='description'>";
 						echo "<div class='name'>".$name."</div>";
 						echo "<div style='float: left; position:relative; top:13px; background-color:rgb(0,200,30); border:2px black; border-radius:7px; width:14px; height:14px;'></div>";
+						echo "<div class='producer'>".$producer."</div>";
 					echo"</div>";	
 				echo"</div>";
 			echo"</a>";

@@ -11,7 +11,7 @@
 			<INPUT id='search_field' name='search' placeholder='Cerca...' type='text'></INPUT>
 			<INPUT name='search_button' id='search_button' type='submit' value=''></INPUT>
 			<BR><BR>
-			<?php $product = new ProductCard("board","Una fantastica tavola","","39.90","","",12);?>
+			<?php $product = new ProductCard("board","Una fantastica tavola","","39.90","boh","",12);?>
 		</DIV>
 		
 		<?php include("footer.php"); ?>

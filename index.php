@@ -5,7 +5,7 @@
 
 	<BODY>
 		<?php include("header.php"); ?>
-		
+		<DIV id='content'></DIV>
 		<?php include("footer.php"); ?>
 	</BODY>
 </HTML>
