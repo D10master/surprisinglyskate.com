@@ -1,11 +1,12 @@
 <STYLE>
 .product_card
 {
-	display: block;
+	display: inline-block;
+	margin:14px;
 	position: relative;
-	box-shadow: 2px 4px 30px #202020;
 	width: 220px;
 	height: 300px;
+	box-shadow: 2px 4px 30px #202020;
 	background-color: #EFEFEF;
 	border-radius: 2px;
 	text-decoration: none;
@@ -80,6 +81,7 @@
 	font-size: 14pt;
 	font-weight: bold;
 	margin: 5px;
+	font-style: italic;
 }
 
 .name: visited
