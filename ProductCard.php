@@ -1,6 +1,8 @@
 <STYLE>
 .product_card
 {
+	display: block;
+	position: relative;
 	box-shadow: 2px 4px 30px #202020;
 	width: 220px;
 	height: 300px;
@@ -15,6 +17,7 @@
 }
 
 .container {
+  display: block;
   position: relative;
   width: auto;
   height:auto;
@@ -37,6 +40,7 @@
 }
 
 .text {
+  display: block;
   white-space: nowrap; 
   color: white;
   font-size: 18px;
@@ -48,8 +52,10 @@
   -ms-transform: translate(-50%, -50%);
 }
 
+//parte inferiore che contiene il nome ed il produttore
 .description
 {
+	display: block;
 	position: static;
 	bottom: 0%;
 	width: 100%;
@@ -60,10 +66,23 @@
 
 .name
 {
+	display: block;
+	float: left;
+	width:auto%;
 	color: black;
 	font-size: 18pt;
 	font-weight: bold;
 	margin: 5px;
+}
+
+.name: visited
+{
+	text-decoration: none;
+}
+
+.no_decoration
+{
+	
 }
 </STYLE>
 
@@ -85,15 +104,15 @@
 					echo"<div class='container'>";
 						echo"<image class='image' src='skate.jpg'>";
 						echo"<div class='overlay'>";
-							echo"<div class='text'>".$price."$<div>";
+							echo"<div class='text'>".$price."$</div>";
 						echo"</div>"; //overlay
 					echo"</div>";// container
-					echo"<div class='content'>";
-						echo "<span class='name'>".$name."</span>";
-						echo "<div style='position:relative; top:5px; right:3px; background-color:rgb(0,200,30); border:2px black; border-radius:10px; width:20px; height:20px;'></div>";
+					echo"<div class='description'>";
+						echo "<div class='name'>".$name."</div>";
+						echo "<div style='float: left; position:relative; top:13px; background-color:rgb(0,200,30); border:2px black; border-radius:7px; width:14px; height:14px;'></div>";
 					echo"</div>";	
 				echo"</div>";
-			echo"<a>";
+			echo"</a>";
 		}
 	}
 ?>
