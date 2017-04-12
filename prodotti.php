@@ -1,6 +1,6 @@
 <?php
 	//chiamata al DB
-	/*include('connect.php');
+	include('connect.php');
 	$query="";
 	$query=$query."SELECT id,nome,prezzo,produttore FROM prodotti ";
 	$risultato=mysql_query($query) or die($query);
@@ -14,7 +14,7 @@
 			$produttore = $array['produttore'];
 			$product = new ProductCard($nome,"","",$prezzo,"","",11);
 		}
-	}*/
+	}
 ?>
 
 <HTML>
@@ -36,7 +36,7 @@
 			<BR><BR>
 			<?php
 				//prova per posizionare n prodotti uguali nella pagina
-				$n=500;
+				$n=50;
 				for($i=0; $i<$n; $i++)
 				{
 					$product = new ProductCard("board","Una fantastica tavola, ultra leggera perfetta per sfrecciare a massima velocità","","39.90","produttore","",12);
