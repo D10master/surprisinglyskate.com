@@ -2,10 +2,19 @@
 	//chiamata al DB
 	include('connect.php');
 	include ('ProductCard.php');
-	$query="";
-	$query=$query."SELECT id,nome,prezzo,produttore FROM prodotti ";
+	if(!isset($_POST['cerca_categoria'])){
+		$query="";
+		$query=$query."SELECT id,nome,prezzo,produttore FROM prodotti ";
+	}else {
+		$query="";
+		$query=$query."SELECT id,nome,prezzo,produttore FROM prodotti ";
+		$query=$query."WHERE id_categoria='".$_POST['categoria']."'";
+	}
 	$risultato=mysql_query($query) or die($query);
 
+	$query="";
+	$query=$query."SELECT id,nome FROM categorie ";
+	$rcategorie=mysql_query($query) or die($query);
 
 ?>
 
@@ -26,6 +35,21 @@
 			</FORM>
 			<BR><BR>
 			<?php
+
+			echo "<FORM method='post' action=''>";
+			echo "<SELECT name='categoria'>";
+			echo "<OPTION value=''>Seleziona</OPTION>";
+
+	   while($array=mysql_fetch_array($rcategorie))
+	   {
+		  $id = $array['id'];
+			$nome = $array['nome'];
+		     echo "<OPTION value='".$id."'>".$nome."</OPTION>";
+	   }
+	   echo "</SELECT> <br>";
+		 echo "<INPUT id='' name='cerca_categoria'  type='submit' value='Cerca per categoria'></INPUT>";
+		 echo "</FORM>";
+
 			if(mysql_num_rows($risultato)>0)
 			{
 				while($array=mysql_fetch_array($risultato))
@@ -36,7 +60,7 @@
 					$product = new ProductCard($nome,"","",$prezzo,"","",11);
 				}
 			}
-			
+
 				//prova per posizionare n prodotti uguali nella pagina
 				$n=50;
 				for($i=0; $i<$n; $i++)
