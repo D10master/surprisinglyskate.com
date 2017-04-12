@@ -25,12 +25,12 @@
   height:auto;
 }
 
-.top:hover .overlay 
+.top:hover .overlay
 {
   height: 100%;
 }
 
-.overlay 
+.overlay
 {
   position: absolute;
   bottom: 0;
@@ -44,7 +44,7 @@
 }
 
 .price {
-  white-space: nowrap; 
+  white-space: nowrap;
   color: white;
   font-size: 20px;
   position: absolute;
@@ -109,7 +109,7 @@
 
 .no_decoration
 {
-	
+
 }
 </STYLE>
 
@@ -123,7 +123,7 @@
 		public $producer="";
 		public $category="";
 		public $stock;
-		
+
 		public function __construct($name,$description,$image,$price,$producer,$category,$stock)
 		{
 			echo"<a href=''>";
@@ -139,7 +139,7 @@
 						echo "<span class='name'>".$name."</span>";
 						echo "<div style='float: left; position:relative; top:13px; background-color:rgb(0,200,30); border:2px black; border-radius:7px; width:14px; height:14px;'></div>";
 						echo "<span class='producer'>".$producer."</span>";
-					echo"</div>";	
+					echo"</div>";
 				echo"</div>";
 			echo"</a>";
 		}

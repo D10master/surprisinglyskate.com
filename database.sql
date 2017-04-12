@@ -11,284 +11,89 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+CREATE DATABASE IF NOT EXISTS skate_ecommerce;
+USE skate_ecommerce;
 
---
--- Database: `skate_ecommerce`
---
+CREATE TABLE clienti(
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(50) NOT NULL,
+cognome VARCHAR(50) NOT NULL,
+email VARCHAR(50) NOT NULL,
+cellulare VARCHAR(50) NOT NULL,
+indirizzo VARCHAR(50) NOT NULL
+);
 
--- --------------------------------------------------------
+CREATE TABLE dati_accesso(
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+username VARCHAR(50) NOT NULL,
+password VARCHAR(50) NOT NULL,
+id_cliente INT NOT NULL UNIQUE,
+FOREIGN KEY(id_cliente) REFERENCES clienti(id)
+);
 
---
--- Table structure for table `categorie`
---
 
-CREATE TABLE `categorie` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(50) NOT NULL,
-  `descrizione` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE ordini(
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+data DATETIME NOT NULL,
+stato ENUM('Elaborazione','Spedito','Ricevuto'),
+id_cliente INT NOT NULL,
+FOREIGN KEY(id_cliente) REFERENCES clienti(id)
+);
 
---
--- Dumping data for table `categorie`
---
+CREATE TABLE categorie(
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(50) NOT NULL,
+descrizione VARCHAR(255) NOT NULL
+);
 
-INSERT INTO `categorie` (`id`, `nome`, `descrizione`) VALUES
-(1, 'tavole', 'tavole di legno'),
-(2, 'grip', 'rivestimento antiscivolo per le tavole'),
-(3, 'truck', 'carrello'),
-(4, 'ruote strada', 'ruote per girare in strada, ideali per la città'),
-(5, 'ruote rampa', 'ruote per eseguire trick sulle rampe, ideale per palestre e luoghi di allenamento'),
-(6, 'cuscinetti', 'cuscinetti a sfera'),
-(7, 'bulloneria', 'viti fissaggio tavola, bulloni fissaggio ruote e cuscinetti'),
-(8, 'riser', 'guarnizione in gomm, separa tavola e truck');
+CREATE TABLE prodotti(
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+immagine VARCHAR(50) NOT NULL,
+produttore VARCHAR(50) NOT NULL,
+prezzo DECIMAL(10,2) NOT NULL,
+scorta INT NOT NULL,
+id_categoria INT,
+FOREIGN KEY(id_categoria) REFERENCES categorie(id)
+);
 
--- --------------------------------------------------------
 
---
--- Table structure for table `clienti`
---
+CREATE TABLE dettaglio_ordine(
+id_ordine INT NOT NULL,
+id_prodotto INT NOT NULL,
+FOREIGN KEY (id_ordine) REFERENCES ordini(id),
+FOREIGN KEY (id_prodotto) REFERENCES prodotti(id),
+quantita INT NOT NULL
+);
 
-CREATE TABLE `clienti` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(50) NOT NULL,
-  `cognome` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `cellulare` varchar(50) NOT NULL,
-  `indirizzo` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE lingue(
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+lingua VARCHAR(50) NOT NULL,
+bandiera VARCHAR(100) NOT NULL
+);
 
---
--- Dumping data for table `clienti`
---
+CREATE TABLE prodotto_lingua(
+nome VARCHAR(50) NOT NULL,
+descrizione VARCHAR(255) NOT NULL,
+id_prodotto INT NOT NULL,
+id_lingua INT NOT NULL,
+FOREIGN KEY(id_prodotto) REFERENCES prodotti(id),
+FOREIGN KEY(id_lingua) REFERENCES lingue(id),
+PRIMARY KEY(id_prodotto,id_lingua)
+);
 
-INSERT INTO `clienti` (`id`, `nome`, `cognome`, `email`, `cellulare`, `indirizzo`) VALUES
-(1, 'giacomo', 'caluso', 'g.c@gmail.com', '3459874564', 'via roma 10 torino 10127');
+CREATE TABLE carte(
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(20) NOT NULL
+);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `dati_accesso`
---
-
-CREATE TABLE `dati_accesso` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `id_cliente` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `dati_accesso`
---
-
-INSERT INTO `dati_accesso` (`id`, `username`, `password`, `id_cliente`) VALUES
-(1, 'pino', 'ciao', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `dettaglio_ordine`
---
-
-CREATE TABLE `dettaglio_ordine` (
-  `id_ordine` int(11) NOT NULL,
-  `id_prodotto` int(11) NOT NULL,
-  `quantita` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `lingue`
---
-
-CREATE TABLE `lingue` (
-  `id` int(11) NOT NULL,
-  `lingua` varchar(50) NOT NULL,
-  `bandiera` blob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ordini`
---
-
-CREATE TABLE `ordini` (
-  `id` int(11) NOT NULL,
-  `data` datetime NOT NULL,
-  `stato` enum('In elaborazione','Spedito','Ricevuto') DEFAULT NULL,
-  `id_cliente` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `prodotti`
---
-
-CREATE TABLE `prodotti` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `immagine` blob NOT NULL,
-  `produttore` varchar(50) NOT NULL,
-  `prezzo` decimal(10,2) NOT NULL,
-  `scorta` int(11) NOT NULL,
-  `id_categoria` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `prodotti`
---
-
-INSERT INTO `prodotti` (`id`, `nome`, `immagine`, `produttore`, `prezzo`, `scorta`, `id_categoria`) VALUES
-(1, 'tavola legno di noce', '', 'ak47', '20.00', 4, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `prodotto_lingua`
---
-
-CREATE TABLE `prodotto_lingua` (
-  `nome` varchar(50) NOT NULL,
-  `descrizione` varchar(255) NOT NULL,
-  `id_prodotto` int(11) NOT NULL,
-  `id_lingua` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `categorie`
---
-ALTER TABLE `categorie`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `clienti`
---
-ALTER TABLE `clienti`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `dati_accesso`
---
-ALTER TABLE `dati_accesso`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_cliente` (`id_cliente`);
-
---
--- Indexes for table `dettaglio_ordine`
---
-ALTER TABLE `dettaglio_ordine`
-  ADD KEY `id_ordine` (`id_ordine`),
-  ADD KEY `id_prodotto` (`id_prodotto`);
-
---
--- Indexes for table `lingue`
---
-ALTER TABLE `lingue`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ordini`
---
-ALTER TABLE `ordini`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_cliente` (`id_cliente`);
-
---
--- Indexes for table `prodotti`
---
-ALTER TABLE `prodotti`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_categoria` (`id_categoria`);
-
---
--- Indexes for table `prodotto_lingua`
---
-ALTER TABLE `prodotto_lingua`
-  ADD PRIMARY KEY (`id_prodotto`,`id_lingua`),
-  ADD KEY `id_lingua` (`id_lingua`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `categorie`
---
-ALTER TABLE `categorie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `clienti`
---
-ALTER TABLE `clienti`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `dati_accesso`
---
-ALTER TABLE `dati_accesso`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `lingue`
---
-ALTER TABLE `lingue`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `ordini`
---
-ALTER TABLE `ordini`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `prodotti`
---
-ALTER TABLE `prodotti`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `dati_accesso`
---
-ALTER TABLE `dati_accesso`
-  ADD CONSTRAINT `dati_accesso_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clienti` (`id`);
-
---
--- Constraints for table `dettaglio_ordine`
---
-ALTER TABLE `dettaglio_ordine`
-  ADD CONSTRAINT `dettaglio_ordine_ibfk_1` FOREIGN KEY (`id_ordine`) REFERENCES `ordini` (`id`),
-  ADD CONSTRAINT `dettaglio_ordine_ibfk_2` FOREIGN KEY (`id_prodotto`) REFERENCES `prodotti` (`id`);
-
---
--- Constraints for table `ordini`
---
-ALTER TABLE `ordini`
-  ADD CONSTRAINT `ordini_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clienti` (`id`);
-
---
--- Constraints for table `prodotti`
---
-ALTER TABLE `prodotti`
-  ADD CONSTRAINT `prodotti_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorie` (`id`);
-
---
--- Constraints for table `prodotto_lingua`
---
-ALTER TABLE `prodotto_lingua`
-  ADD CONSTRAINT `prodotto_lingua_ibfk_1` FOREIGN KEY (`id_prodotto`) REFERENCES `prodotti` (`id`),
-  ADD CONSTRAINT `prodotto_lingua_ibfk_2` FOREIGN KEY (`id_lingua`) REFERENCES `lingue` (`id`);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
+CREATE TABLE pagamento(
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+codice VARCHAR(20) NOT NULL,
+ccv VARCHAR(3) NOT NULL,
+scadenza DATE NOT NULL,
+titolare VARCHAR(50) NOT NULL,
+id_cliente INT NOT NULL,
+id_carta INT NOT NULL,
+FOREIGN KEY(id_cliente) REFERENCES clienti(id),
+FOREIGN KEY(id_carta) REFERENCES carte(id)
+);

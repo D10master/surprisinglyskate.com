@@ -1,6 +1,5 @@
 <FOOTER id='footer'>
-	<span class='footer_element'> Indirizzo: Via dei roller 35B </span>
-	<span class='footer_element'> e-mail:skate@admin.com </span>
-	<span class='footer_element'> telefono: 33942566793 </span>
-	<span class='footer_element'> fax: 44657422 </span>
+	<span class='footer_element'> Indirizzo: ViaPonchielli 16 Moncalieri </span>
+	<span class='footer_element'> e-mail:pinocorri@gmail.com </span>
+	<span class='footer_element'> telefono: 3333610177 </span>
 </FOOTER>

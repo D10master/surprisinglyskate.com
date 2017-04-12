@@ -1,6 +1,6 @@
 <DIV id='header'>
 	<DIV id='logo'>
-		<img src="logo.png" alt="logo.png" id='logo_image'/>
+		<img src="logo.png" alt="logo.png" id='logo_image' href='index.php' />
 	</DIV>
 	<DIV id='navbar'>
 		<a class='navbar_element' href='index.php'> Home </a>
