@@ -36,7 +36,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgb(0,140,255,0.55);
+  background-color: rgba(0,140,255,0.55);
   overflow: hidden;
   width: 100%;
   height: 0;

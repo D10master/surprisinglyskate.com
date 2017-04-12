@@ -91,6 +91,7 @@ input#search_button[type=submit]:hover
 	position: relative;
 	top: 10px;
 	width: 100%;
+	min-height: 70%
 }
 
 .navbar_element

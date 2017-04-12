@@ -29,12 +29,14 @@
 		?>
 
 		<DIV id='content'>
-			<INPUT id='search_field' name='search' placeholder='Cerca...' type='text'></INPUT>
-			<INPUT name='search_button' id='search_button' type='submit' value=''></INPUT>
+			<FORM method='post' action=''>
+				<INPUT id='search_field' name='search_field' placeholder='Cerca...' type='text'></INPUT>
+				<INPUT id='search_button' name='search_button'  type='submit' value=''></INPUT>
+			</FORM>
 			<BR><BR>
 			<?php
 				//prova per posizionare n prodotti uguali nella pagina
-				$n=50;
+				$n=500;
 				for($i=0; $i<$n; $i++)
 				{
 					$product = new ProductCard("board","Una fantastica tavola, ultra leggera perfetta per sfrecciare a massima velocità","","39.90","produttore","",12);
