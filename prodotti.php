@@ -1,20 +1,12 @@
 <?php
 	//chiamata al DB
 	include('connect.php');
+	include ('ProductCard.php');
 	$query="";
 	$query=$query."SELECT id,nome,prezzo,produttore FROM prodotti ";
 	$risultato=mysql_query($query) or die($query);
-	
-	if(mysql_num_rows($risultato)>0)
- 	{
- 		while($array=mysql_fetch_array($risultato))
- 		{
-			$nome = $array['nome'];
-			$prezzo =  $array['prezzo'];
-			$produttore = $array['produttore'];
-			$product = new ProductCard($nome,"","",$prezzo,"","",11);
-		}
-	}
+
+
 ?>
 
 <HTML>
@@ -23,9 +15,8 @@
 	</HEAD>
 
 	<BODY>
-		<?php 
-			include("ProductCard.php");
-			include("header.php"); 
+		<?php
+			include("header.php");
 		?>
 
 		<DIV id='content'>
@@ -35,6 +26,17 @@
 			</FORM>
 			<BR><BR>
 			<?php
+			if(mysql_num_rows($risultato)>0)
+			{
+				while($array=mysql_fetch_array($risultato))
+				{
+					$nome = $array['nome'];
+					$prezzo =  $array['prezzo'];
+					$produttore = $array['produttore'];
+					$product = new ProductCard($nome,"","",$prezzo,"","",11);
+				}
+			}
+			
 				//prova per posizionare n prodotti uguali nella pagina
 				$n=50;
 				for($i=0; $i<$n; $i++)
