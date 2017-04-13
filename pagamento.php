@@ -73,6 +73,7 @@
 	   echo "</SELECT> <br>";
      echo "<INPUT id='' name='paga'  type='submit' value='Paga'></INPUT>";
      echo "</FORM>";
+     ?>
      </DIV>
 		<?php include("footer.php"); ?>
 	</BODY>
