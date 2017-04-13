@@ -1,5 +1,5 @@
 <?php
-	/*include('connect.php');
+  include('connect.php');
 	session_start();
 
 	if(isset($_POST['ENTRA']))
@@ -41,7 +41,7 @@
 
 		}
 	}
-		echo "<h1 style='color:white;'>Benvenuto utente : ". $_SESSION['username']."</h1>";*/
+		echo "<h1 style='color:white;'>Benvenuto utente : ". $_SESSION['username']."</h1>";
 ?>
 
 <HTML>
@@ -53,7 +53,7 @@
 		<?php include("header.php"); ?>
 		<!-- riempire con i contenuti della pagina -->
 		<DIV id='content'>
-		
+
 		</DIV>
 		<?php include("footer.php"); //il footer rimane attaccato alla navbar se non si mette nulla nella div content?>
 	</BODY>
