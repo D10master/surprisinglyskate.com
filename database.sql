@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2017 at 03:19 PM
+-- Generation Time: Apr 14, 2017 at 03:24 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -173,7 +173,10 @@ CREATE TABLE `prodotti` (
 --
 
 INSERT INTO `prodotti` (`id`, `nome`, `immagine`, `produttore`, `prezzo`, `scorta`, `id_categoria`) VALUES
-(1, 'tavola legno di noce', '', 'ak47', '20.00', 4, 1);
+(1, 'tavola legno di noce', 'tavola_legno', 'ak47', '20.00', 4, 1),
+(2, 'tavola plastica', 'tavola_plastica', 'ak47', '10.00', 2, 1),
+(3, 'grip verde', 'grip_verde', 'ak47', '2.00', 3, 2),
+(4, 'grip rosso', 'grip_rosso', 'ak47', '2.00', 4, 2);
 
 -- --------------------------------------------------------
 
@@ -249,103 +252,17 @@ ALTER TABLE `pagamento`
 -- Indexes for table `prodotti`
 --
 ALTER TABLE `prodotti`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_categoria` (`id_categoria`);
-
---
--- Indexes for table `prodotto_lingua`
---
-ALTER TABLE `prodotto_lingua`
-  ADD PRIMARY KEY (`id_prodotto`,`id_lingua`),
-  ADD KEY `id_lingua` (`id_lingua`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `carte`
---
-ALTER TABLE `carte`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `categorie`
---
-ALTER TABLE `categorie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `clienti`
---
-ALTER TABLE `clienti`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `dati_accesso`
---
-ALTER TABLE `dati_accesso`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `lingue`
---
-ALTER TABLE `lingue`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `ordini`
---
-ALTER TABLE `ordini`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `pagamento`
---
-ALTER TABLE `pagamento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `prodotti`
 --
 ALTER TABLE `prodotti`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `dati_accesso`
---
-ALTER TABLE `dati_accesso`
-  ADD CONSTRAINT `dati_accesso_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clienti` (`id`);
-
---
--- Constraints for table `dettaglio_ordine`
---
-ALTER TABLE `dettaglio_ordine`
-  ADD CONSTRAINT `dettaglio_ordine_ibfk_1` FOREIGN KEY (`id_ordine`) REFERENCES `ordini` (`id`),
-  ADD CONSTRAINT `dettaglio_ordine_ibfk_2` FOREIGN KEY (`id_prodotto`) REFERENCES `prodotti` (`id`);
-
---
--- Constraints for table `ordini`
---
-ALTER TABLE `ordini`
-  ADD CONSTRAINT `ordini_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clienti` (`id`);
-
---
--- Constraints for table `pagamento`
---
-ALTER TABLE `pagamento`
-  ADD CONSTRAINT `pagamento_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clienti` (`id`),
-  ADD CONSTRAINT `pagamento_ibfk_2` FOREIGN KEY (`id_carta`) REFERENCES `carte` (`id`);
-
---
--- Constraints for table `prodotti`
---
-ALTER TABLE `prodotti`
-  ADD CONSTRAINT `prodotti_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorie` (`id`);
-
---
--- Constraints for table `prodotto_lingua`
---
-ALTER TABLE `prodotto_lingua`
-  ADD CONSTRAINT `prodotto_lingua_ibfk_1` FOREIGN KEY (`id_prodotto`) REFERENCES `prodotti` (`id`),
-  ADD CONSTRAINT `prodotto_lingua_ibfk_2` FOREIGN KEY (`id_lingua`) REFERENCES `lingue` (`id`);
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
