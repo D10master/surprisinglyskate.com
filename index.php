@@ -41,7 +41,7 @@
 
 		}
 	}
-		echo "<h1 style='color:white;'>Benvenuto utente : ". $_SESSION['username']."</h1>";
+		echo "<h1 style='color:white;'>Benvenuto utente : ".$_SESSION['username'] ."</h1>";
 ?>
 
 <HTML>

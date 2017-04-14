@@ -101,13 +101,20 @@ input#search_button[type=submit]:hover
 	box-shadow: 5px 5px 20px rgba(0,0,0,0.7);
 	background-color: rgba(50,50,50,0.7);
 	border: 5px solid rgba(20,20,20,0.8);
-	border-radius: 12px;
+	border-radius: 10px;
 	position: fixed;
 	top: 25%;
 	left: 25%;
 	width: 50%;
 	height: 50%;
 	min-height: 260px;
+	animation-name: enter;
+	animation-duration: 2s;
+}
+
+@keyframes enter {
+    from {left: -20%;}
+    to {left: 25%;}
 }
 
 #username_field
@@ -144,6 +151,7 @@ input#search_button[type=submit]:hover
 
 #login_button
 {
+	font-size: 12pt;
 	font-weight: bold;
 	box-shadow: 5px 5px 20px rgba(0,0,0,0.7);
 	background-color: rgb(170,230,170);
@@ -165,6 +173,7 @@ input#search_button[type=submit]:hover
 
 #register_button
 {
+	font-size: 12pt;
 	font-weight: bold;
 	box-shadow: 5px 5px 20px rgba(0,0,0,0.7);
 	background-color: rgb(150,150,255);
