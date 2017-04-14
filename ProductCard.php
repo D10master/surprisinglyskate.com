@@ -4,8 +4,8 @@
 	display: inline-block;
 	margin:14px;
 	position: relative;
-	width: 220px;
-	height: 300px;
+	width: 280px;
+	height: 400px;
 	box-shadow: 2px 4px 30px #202020;
 	background-color: #EFEFEF;
 	border-radius: 2px;
@@ -86,7 +86,7 @@
 	float: left;
 	width:auto;
 	color: black;
-	font-size: 20pt;
+	font-size: 16pt;
 	font-weight: bold;
 	margin: 5px;
 }
@@ -96,7 +96,7 @@
 	float:left;
 	width:80%;
 	color: black;
-	font-size: 12pt;
+	font-size: 11pt;
 	font-weight: bold;
 	margin: 5px;
 	font-style: italic;
@@ -137,7 +137,7 @@
 					echo"</div>";// top
 					echo"<div class='bottom'>";
 						echo "<span class='name'>".$name."</span>";
-						echo "<div style='float: left; position:relative; top:13px; background-color:rgb(0,200,30); border:2px black; border-radius:7px; width:14px; height:14px;'></div>";
+						echo "<div style='float: left; position:relative; top:13px; background-color:rgb(0,200,30); border:2px black; border-radius:5px; width:10px; height:10px;'></div>";
 						echo "<span class='producer'>".$producer."</span>";
 					echo"</div>";
 				echo"</div>";
