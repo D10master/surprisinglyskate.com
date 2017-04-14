@@ -94,8 +94,28 @@ input#search_button[type=submit]:hover
 	position: relative;
 	top: 10px;
 	width: 100%;
-	//min-height: 70%;
-	min-height: 485px;
+	min-height: 565px;
+}
+
+#login
+{
+	background-color: rgba(50,50,50,0.7);
+	position: fixed;
+	top: 25%;
+	left: 25%;
+	width: 50%;
+	height: 50%;
+	//padding: 200px;
+}
+
+#login_field
+{
+	
+}
+
+#login_button
+{
+	
 }
 
 .navbar_element
