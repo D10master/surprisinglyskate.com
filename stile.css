@@ -98,23 +98,26 @@ input#search_button[type=submit]:hover
 
 #login
 {
-	box-shadow: 5px 5px 20px rgba(0,0,0,0.7);
 	background-color: rgba(50,50,50,0.7);
 	border: 5px solid rgba(20,20,20,0.8);
 	border-radius: 10px;
-	position: fixed;
+	position: absolute;
 	top: 25%;
 	left: 25%;
 	width: 50%;
 	height: 50%;
+	min-width: 640px;
 	min-height: 260px;
+	transform: scale(1.0,1.0);
 	animation-name: enter;
-	animation-duration: 2s;
+	animation-duration: 1s;
+	-webkit-animation-play-state: paused; /* Safari 4.0 - 8.0 */
+    animation-play-state: paused;
 }
 
 @keyframes enter {
-    from {left: -20%;}
-    to {left: 25%;}
+    from {transform: scale(0.0,0.0);}
+    to {transform: scale(1,1);}
 }
 
 #username_field
@@ -176,7 +179,7 @@ input#search_button[type=submit]:hover
 	font-size: 12pt;
 	font-weight: bold;
 	box-shadow: 5px 5px 20px rgba(0,0,0,0.7);
-	background-color: rgb(150,150,255);
+	background-color: rgb(150,180,255);
 	position: relative;
 	left: 35%;
 	border: 1px;
@@ -189,13 +192,32 @@ input#search_button[type=submit]:hover
 }
 #register_button:hover
 {
-		background-color: rgb(120,120,255);
+		background-color: rgb(130,150,255);
+}
+
+#close_button
+{
+	font-size: 12pt;
+	font-weight: bold;
+	box-shadow: 5px 5px 20px rgba(0,0,0,0.7);
+	background-color: rgb(150,180,255);
+	position: relative;
+	left: 35%;
+	border: 1px;
+	border-radius: 4px;
+	width:14.5%;
+	height:15%;
+	transition-property: background-color;
+	transition-duration: 0.6s;
+	transition-timing-function: ease-in-out;
 }
 
 .navbar_element
 {
 	display: inline-block;
+	background-color: #202020;
     color: #EEEEEE;
+	border: 0px;
     text-align: center;
     padding: 16px 24px;
 	text-decoration: none;

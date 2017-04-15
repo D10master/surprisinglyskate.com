@@ -41,12 +41,16 @@
 
 		}
 	}
-		echo "<h1 style='color:white;'>Benvenuto utente : ".$_SESSION['username'] ."</h1>";
+		if($_SESSION['username'] != null)
+		{
+			echo "<h1 style='color:white;'>Benvenuto utente : ".$_SESSION['username'] ."</h1>";
+		}
 ?>
 
 <HTML>
 	<HEAD>
 		<link rel="stylesheet" type="text/css" href="stile.css">
+		<script src="script.js"></script>
 	</HEAD>
 
 	<BODY>
@@ -55,6 +59,7 @@
 		<DIV id='content'>
 
 		</DIV>
-		<?php include("footer.php"); //il footer rimane attaccato alla navbar se non si mette nulla nella div content?>
+		<?php include("footer.php"); ?>
+		<?php include("login.php"); ?>
 	</BODY>
 </HTML>

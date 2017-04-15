@@ -7,7 +7,7 @@
 		<a class='navbar_element' href='prodotti.php'> Prodotti </a>
 		<a class='navbar_element'> Chi siamo </a>
 		<a class='navbar_element'> Dove siamo </a>
-		<a class='navbar_element' href="login.php"> Login </a>
+		<button class='navbar_element' onclick='openLogin()'> Login </button>
 		<a class='navbar_element'> Registrati </a>
 	</DIV>
 </DIV>
