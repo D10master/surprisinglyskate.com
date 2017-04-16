@@ -7,13 +7,15 @@
 	$query=$query."SELECT id,nome,prezzo,produttore FROM prodotti ";
 
 
-	if(isset($_POST['cerca_categoria'])){
+	if(isset($_POST['cerca_categoria']))
+	{
 		$query="";
 		$query=$query."SELECT id,nome,prezzo,produttore FROM prodotti ";
 		$query=$query."WHERE id_categoria='".$_POST['categoria']."'";
 	}
 
-	if(isset($_POST['search_button'])){
+	if(isset($_POST['search_button']))
+	{
 		$query="";
 		$query=$query."SELECT id,nome,prezzo,produttore FROM prodotti ";
 		$query=$query."WHERE nome LIKE '%".$_POST['search_field']."%'";

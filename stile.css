@@ -40,7 +40,7 @@ body
     background-color: #202020;
 	width: 100%;
 	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10x;
+	border-bottom-right-radius: 10px;
 }
 
 input#search_field
@@ -75,7 +75,7 @@ input#search_button[type=submit]
 	border-radius: 4px;
 	width:50px;
 	height:50px;
-	background-image: url(search.png);
+	background-image: url(media/immagini/search.png);
 	background-color: #F0F0F0;
 	background-size:100% 100%;
 	transition-property: background-color;
@@ -109,15 +109,22 @@ input#search_button[type=submit]:hover
 	min-width: 640px;
 	min-height: 260px;
 	transform: scale(1.0,1.0);
-	animation-name: enter;
-	animation-duration: 1s;
+	animation-name: open_login;
+	animation-duration: 0.75s;
 	-webkit-animation-play-state: paused; /* Safari 4.0 - 8.0 */
     animation-play-state: paused;
 }
 
-@keyframes enter {
+@keyframes open_login 
+{
     from {transform: scale(0.0,0.0);}
     to {transform: scale(1,1);}
+}
+
+@keyframes close_login 
+{
+    from {transform: scale(1,1);}
+    to {transform: scale(0.0,0.0);}
 }
 
 #username_field
@@ -200,13 +207,15 @@ input#search_button[type=submit]:hover
 	font-size: 12pt;
 	font-weight: bold;
 	box-shadow: 5px 5px 20px rgba(0,0,0,0.7);
-	background-color: rgb(150,180,255);
-	position: relative;
-	left: 35%;
+	background-image: url(media/immagini/close.png);
+	background-size: 100% 100%;
+	position: absolute;
+	left: 2%;
+	top: 3%;
 	border: 1px;
-	border-radius: 4px;
-	width:14.5%;
-	height:15%;
+	border-radius: 2px;
+	width:50px;
+	height:50px;
 	transition-property: background-color;
 	transition-duration: 0.6s;
 	transition-timing-function: ease-in-out;
@@ -218,6 +227,8 @@ input#search_button[type=submit]:hover
 	background-color: #202020;
     color: #EEEEEE;
 	border: 0px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
     text-align: center;
     padding: 16px 24px;
 	text-decoration: none;
@@ -227,8 +238,6 @@ input#search_button[type=submit]:hover
 .navbar_element:hover
 {
     background-color: #A02020;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
 }
 
 .footer_element

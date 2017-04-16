@@ -129,7 +129,7 @@
 			echo"<a href=''>";
 				echo"<div class='product_card' href=''>";
 					echo"<div class='top'>";
-						echo"<image class='image' src='skate.jpg'>";
+						echo"<image class='image' src='media/immagini/skate.jpg'>";
 						echo"<div class='overlay'>";
 							echo"<span class='price'>".$price."$</span>";
 							echo"<span class='description'>".$description."</span>";

@@ -60,6 +60,5 @@
 
 		</DIV>
 		<?php include("footer.php"); ?>
-		<?php include("login.php"); ?>
 	</BODY>
 </HTML>
