@@ -33,36 +33,37 @@
 ?>
 
 <HTML>
-	<HEAD>
-		<link rel="stylesheet" type="text/css" href="stile.css">
-	</HEAD>
+	<!--
+	Contiene l'head e l'apertura del body con il logo e la barra di navigazione
+	-->
+	<?php include("header.php");?>
 
-	<BODY>
+	<!--
+	Riempire con i contenuti della pagina
+	-->
+	<DIV id='content'>
+		<FORM method='post' action='prodotti.php'>
+			<INPUT id='search_field' name='search_field' placeholder='Cerca...' type='text'></INPUT>
+			<INPUT id='search_button' name='search_button'  type='submit' value=''></INPUT>
+		</FORM>
+		<BR><BR>
+			
 		<?php
-			include("header.php");
-		?>
-
-		<DIV id='content'>
-			<FORM method='post' action='prodotti.php'>
-				<INPUT id='search_field' name='search_field' placeholder='Cerca...' type='text'></INPUT>
-				<INPUT id='search_button' name='search_button'  type='submit' value=''></INPUT>
-			</FORM>
-			<BR><BR>
-			<?php
 
 			echo "<FORM method='post' action=''>";
 			echo "<SELECT name='categoria'>";
 			echo "<OPTION value=''>Seleziona</OPTION>";
 
-	   while($array=mysql_fetch_array($rcategorie))
-	   {
-		  $id = $array['id'];
-			$nome = $array['nome'];
-		     echo "<OPTION value='".$id."'>".$nome."</OPTION>";
-	   }
-	   echo "</SELECT> <br>";
-		 echo "<INPUT id='' name='cerca_categoria'  type='submit' value='Cerca per categoria'></INPUT>";
-		 echo "</FORM>";
+			while($array=mysql_fetch_array($rcategorie))
+			{
+				$id = $array['id'];
+				$nome = $array['nome'];
+				echo "<OPTION value='".$id."'>".$nome."</OPTION>";
+			}
+		
+			echo "</SELECT> <br>";
+			echo "<INPUT id='' name='cerca_categoria'  type='submit' value='Cerca per categoria'></INPUT>";
+			echo "</FORM>";
 
 			if(mysql_num_rows($risultato)>0)
 			{
@@ -75,15 +76,18 @@
 				}
 			}
 
-				//prova per posizionare n prodotti uguali nella pagina
-				$n=50;
-				for($i=0; $i<$n; $i++)
-				{
-					$product = new ProductCard("board","Una fantastica tavola, ultra leggera perfetta per sfrecciare a massima velocità","","39.90","produttore","",12);
-				}
-			?>
-		</DIV>
-
-		<?php include("footer.php"); ?>
-	</BODY>
+			//prova per posizionare n prodotti uguali nella pagina
+			$n=50;
+			for($i=0; $i<$n; $i++)
+			{
+				$product = new ProductCard("board","Una fantastica tavola, ultra leggera perfetta per sfrecciare a massima velocità","","39.90","produttore","",12);
+			}
+		
+		?>
+	</DIV>
+	
+	<!--
+	Contiene il piè di pagina e la chiusura del body
+	-->
+	<?php include("footer.php"); ?>
 </HTML>

@@ -48,17 +48,20 @@
 ?>
 
 <HTML>
-	<HEAD>
-		<link rel="stylesheet" type="text/css" href="stile.css">
-		<script src="script.js"></script>
-	</HEAD>
-
-	<BODY>
+		<!--
+		Contiene l'head e l'apertura del body con il logo e la barra di navigazione
+		-->
 		<?php include("header.php"); ?>
-		<!-- riempire con i contenuti della pagina -->
+		
+		<!--
+		Riempire con i contenuti della pagina
+		-->
 		<DIV id='content'>
 
 		</DIV>
+		
+		<!--
+		Contiene il piè di pagina e la chiusura del body
+		-->
 		<?php include("footer.php"); ?>
-	</BODY>
 </HTML>

@@ -43,46 +43,39 @@
 
 <HTML>
 
-<HEAD>
-<LINK rel='Stylesheet' href='stile.css' type='TEXT/CSS'>
-</HEAD>
+	<?php
+		include("header.php");
 
-<BODY>
+		echo "<DIV id='benvenuto'>";
+		   echo "<H4>Registrazione nuovo utente</H4>";
+		echo "</DIV>";
 
-<?php
-include("header.php");
+		echo "<DIV id='contenuto'>";
+		   if(isset($_POST['CONFERMA']))
+		   {
+			  echo $mess;
+		   }
+		   else
+		   {
+			  echo "<FORM name='F3' method='post' action='".$_SERVER['PHP_SELF']."' >";
+				 echo "nome: &nbsp;<INPUT type='text' name='NO' value='' size='7'><BR>";
+				 echo "cognome: &nbsp;<INPUT type='text' name='CO' value='' size='7'><BR>";
+				 echo "email: &nbsp;<INPUT type='text' name='EM' value='' size='7'><BR>";
+				 echo "cellulare &nbsp;<INPUT type='text' name='CE' value='' size='7'><BR>";
+				 echo "indirizzo: &nbsp;<INPUT type='text' name='IN' value='' size='7'><BR>";
+				 echo "Username: &nbsp;<INPUT type='text' name='US' value='' size='7'><BR>";
+				 echo "Password: &nbsp;<INPUT type='password' name='PW' value='' size='7'><BR>";
+				 echo "<INPUT class='bottone' type='submit' name='CONFERMA' value='conferma'>";
+			  echo "</FORM>";
+		   }
+		echo "</DIV>";
 
-echo "<DIV id='benvenuto'>";
-   echo "<H4>Registrazione nuovo utente</H4>";
-echo "</DIV>";
+		echo "<DIV id='links'>";
+		   echo "<BR><A href='login.php'>Logout</A>";
+		echo "</DIV>";
 
-echo "<DIV id='contenuto'>";
-   if(isset($_POST['CONFERMA']))
-   {
-      echo $mess;
-   }
-   else
-   {
-      echo "<FORM name='F3' method='post' action='".$_SERVER['PHP_SELF']."' >";
-         echo "nome: &nbsp;<INPUT type='text' name='NO' value='' size='7'><BR>";
-		 echo "cognome: &nbsp;<INPUT type='text' name='CO' value='' size='7'><BR>";
-         echo "email: &nbsp;<INPUT type='text' name='EM' value='' size='7'><BR>";
-		 echo "cellulare &nbsp;<INPUT type='text' name='CE' value='' size='7'><BR>";
-		 echo "indirizzo: &nbsp;<INPUT type='text' name='IN' value='' size='7'><BR>";
-         echo "Username: &nbsp;<INPUT type='text' name='US' value='' size='7'><BR>";
-         echo "Password: &nbsp;<INPUT type='password' name='PW' value='' size='7'><BR>";
-         echo "<INPUT class='bottone' type='submit' name='CONFERMA' value='conferma'>";
-      echo "</FORM>";
-   }
-echo "</DIV>";
+		include("footer.php");
+	?>
 
-echo "<DIV id='links'>";
-   echo "<BR><A href='login.php'>Logout</A>";
-echo "</DIV>";
-
-include("footer.php");
-?>
-
-</BODY>
 </HTML>
 
