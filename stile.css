@@ -109,6 +109,7 @@ input#search_button[type=submit]:hover
 	min-width: 640px;
 	min-height: 260px;
 	transform: scale(1.0,1.0);
+	z-index: 1000;
 	animation-name: open_login;
 	animation-duration: 0.75s;
 	-webkit-animation-play-state: paused; /* Safari 4.0 - 8.0 */
