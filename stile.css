@@ -101,17 +101,17 @@ input#search_button[type=submit]:hover
 	background-color: rgba(50,50,50,0.7);
 	border: 5px solid rgba(20,20,20,0.8);
 	border-radius: 10px;
-	position: absolute;
+	position: fixed;
 	top: 25%;
 	left: 25%;
-	width: 50%;
-	height: 50%;
+	width: 45%;
+	height: 60%;
 	min-width: 640px;
 	min-height: 260px;
 	transform: scale(1.0,1.0);
 	z-index: 1000;
 	animation-name: open_login;
-	animation-duration: 0.75s;
+	animation-duration: 0.7s;
 	-webkit-animation-play-state: paused; /* Safari 4.0 - 8.0 */
     animation-play-state: paused;
 }
