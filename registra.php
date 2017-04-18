@@ -47,7 +47,7 @@
 		include("header.php");
 
 		echo "<DIV id='benvenuto'>";
-		   echo "<H4>Registrazione nuovo utente</H4>";
+		   echo "<H3>Registrazione nuovo utente:</H3>";
 		echo "</DIV>";
 
 		echo "<DIV id='contenuto'>";
@@ -57,15 +57,15 @@
 		   }
 		   else
 		   {
-			  echo "<FORM name='F3' method='post' action='".$_SERVER['PHP_SELF']."' >";
-				 echo "nome: &nbsp;<INPUT type='text' name='NO' value='' size='7'><BR>";
-				 echo "cognome: &nbsp;<INPUT type='text' name='CO' value='' size='7'><BR>";
-				 echo "email: &nbsp;<INPUT type='text' name='EM' value='' size='7'><BR>";
-				 echo "cellulare &nbsp;<INPUT type='text' name='CE' value='' size='7'><BR>";
-				 echo "indirizzo: &nbsp;<INPUT type='text' name='IN' value='' size='7'><BR>";
-				 echo "Username: &nbsp;<INPUT type='text' name='US' value='' size='7'><BR>";
-				 echo "Password: &nbsp;<INPUT type='password' name='PW' value='' size='7'><BR>";
-				 echo "<INPUT class='bottone' type='submit' name='CONFERMA' value='conferma'>";
+				echo "<FORM name='F3' method='post' action='".$_SERVER['PHP_SELF']."' >";
+					echo "<INPUT type='text' name='NO' placeholder='nome' value='' size='7'><BR>";
+					echo "<INPUT type='text' name='CO' placeholder='cognome' value='' size='7'><BR>";
+					echo "<INPUT type='text' name='EM' placeholder='e-mail' value='' size='7'><BR>";
+					echo "<INPUT type='text' name='CE' placeholder='cellulare' value='' size='7'><BR>";
+					echo "<INPUT type='text' name='IN' placeholder='indirizzo' value='' size='7'><BR>";
+					echo "<INPUT type='text' name='US' placeholder='username' value='' size='7'><BR>";
+					echo "<INPUT type='password' name='PW' placeholder='password' value='' size='7'><BR>";
+					echo "<INPUT class='bottone' type='submit' name='CONFERMA' value='conferma'>";
 			  echo "</FORM>";
 		   }
 		echo "</DIV>";

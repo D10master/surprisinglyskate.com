@@ -41,9 +41,9 @@
 
 		}
 	}
-		if($_SESSION['username'] != null)
+		if($_SESSION['username'])
 		{
-			echo "<h1 style='color:white;'>Benvenuto utente : ".$_SESSION['username'] ."</h1>";
+			echo "<h1 style='color:white;'>Benvenuto ".$_SESSION['username'] ."</h1>";
 		}
 ?>
 

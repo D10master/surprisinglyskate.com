@@ -5,7 +5,9 @@
 </HEAD>
 
 <BODY>
-	<?php include("login.php"); ?>
+	<?php include("login.php");
+		$categorie = mysql_query("SELECT nome FROM categorie");
+	?>
 
 	<DIV id='header'>
 		<DIV id='logo'>
@@ -14,7 +16,19 @@
 		
 		<DIV id='navbar'>
 			<a class='navbar_element' href='index.php'> Home </a>
-			<a class='navbar_element' href='prodotti.php'> Prodotti </a>
+			<a class='' href='prodotti.php'>
+				<div class="dropdown">
+					prodotti
+					<div class="dropdown-content">
+						<?php
+							while($row = mysql_fetch_array($categorie))
+							{
+								echo "<a href='prodotti.php'>$row[0]</a>";
+							}
+						?>
+					</div>
+				</div>
+
 			<a class='navbar_element'> Chi siamo </a>
 			<a class='navbar_element'> Dove siamo </a>
 			<button class='navbar_element' onclick='openLogin()'> Login </button>
