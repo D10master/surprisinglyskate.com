@@ -5,7 +5,9 @@
 </HEAD>
 
 <BODY>
-	<?php include("login.php");
+	<?php
+		include ("connect.php");
+		include("login.php");
 		$categorie = mysql_query("SELECT nome FROM categorie");
 	?>
 
@@ -17,15 +19,17 @@
 		<DIV id='navbar'>
 			<a class='navbar_element' href='index.php'> Home </a>
 			<DIV class="dropdown">
-				<span><a class='' href='prodotti.php'>Categorie</a></span>
+				<span> Prodotti </span>
 				<div class="dropdown-content">
 					<?php
+					echo "<FORM method='post' action='prodotti.php' class='dropdown_form'>";
+					echo "<input type='submit' value='tutte' name='cat_tutte'><BR>";
 					while($row = mysql_fetch_array($categorie))
 					{
-						//$_SESSION['cat'] = 
-						echo "<a href='prodotti.php'>$row[0]</a><br>";
+						echo "<input type='submit' value='$row[0]' name='$row[0]'><BR>";
 						
 					}
+					echo "</FORM>";
 					?>
 				</DIV>
 			</DIV>

@@ -14,20 +14,36 @@
 		$query=$query."WHERE id_categoria='".$_POST['categoria']."'";
 	}
 
+	
 	if(isset($_POST['search_button']))
 	{
 		$query="";
 		$query=$query."SELECT id,nome,prezzo,produttore FROM prodotti ";
 		$query=$query."WHERE nome LIKE '%".$_POST['search_field']."%'";
-		echo $query;
 	}
 
-
-	$risultato=mysql_query($query) or die($query);
 
 	$query="";
 	$query=$query."SELECT id,nome FROM categorie ";
 	$rcategorie=mysql_query($query) or die($query);
+
+	while($row = mysql_fetch_array($rcategorie)){
+		if(isset($_POST['cat_tutte'])){
+			$query="";
+			$query=$query."SELECT p.id,p.nome,p.prezzo,p.produttore FROM prodotti as p ";
+		}
+		
+		if(isset($_POST[$row['nome']]))
+		{
+			$query="";
+			$query=$query."SELECT p.id,p.nome,p.prezzo,p.produttore FROM prodotti as p ";
+			$query=$query."INNER JOIN categorie ";
+			$query=$query."ON p.id_categoria = categorie.id ";
+			$query=$query."WHERE categorie.nome ='".$_POST[$row['nome']]."'";
+		}
+	}
+	
+	$risultato=mysql_query($query) or die($query);
 
 
 ?>
@@ -50,20 +66,6 @@
 			
 		<?php
 
-			echo "<FORM method='post' action=''>";
-			echo "<SELECT name='categoria'>";
-			echo "<OPTION value=''>Seleziona</OPTION>";
-
-			while($array=mysql_fetch_array($rcategorie))
-			{
-				$id = $array['id'];
-				$nome = $array['nome'];
-				echo "<OPTION value='".$id."'>".$nome."</OPTION>";
-			}
-		
-			echo "</SELECT> <br>";
-			echo "<INPUT id='' name='cerca_categoria'  type='submit' value='Cerca per categoria'></INPUT>";
-			echo "</FORM>";
 
 			if(mysql_num_rows($risultato)>0)
 			{

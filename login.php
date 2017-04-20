@@ -9,7 +9,7 @@ echo "<DIV id='login'>";
 echo "<FORM name='F1' method='post' action='index.php'>";
 	echo"<BUTTON id='close_button' type='button' onclick='closeLogin()'></BUTTON>";
 	echo "<INPUT type='text' name='USER' id='username_field' value='' placeholder='Username'><BR>";
-	echo "<INPUT type='text' name='PASS' id='password_field' value='' placeholder='Password'><BR><BR>";
+	echo "<INPUT type='password' name='PASS' id='password_field' value='' placeholder='Password'><BR><BR>";
 	echo "<INPUT id='login_button' type='submit' name='ENTRA' value='Login'>";
 	
 	
