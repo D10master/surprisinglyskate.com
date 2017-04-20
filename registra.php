@@ -17,7 +17,7 @@
 	  $PW = $_POST['PW'];
  	  
 
-      $query = "SELECT username FROM dati_accesso WHERE username='".$US."'";
+      $query = "SELECT username FROM clienti WHERE username='".$US."'";
       $risultato = mysql_query($query) or die ($query);
       if(mysql_num_rows($risultato)>0)
       {
@@ -25,17 +25,10 @@
       }  
       else 
       {
-         $query = "INSERT INTO clienti (nome,cognome,email,cellulare,indirizzo) ";
-         $query=$query."VALUES ('".$NO."','".$CO."','".$EM."','".$CE."','".$IN."')";
+         $query = "INSERT INTO clienti (username,password,nome,cognome,email,cellulare,indirizzo) ";
+         $query=$query."VALUES ('".$US."','".$PW."','".$NO."','".$CO."','".$EM."','".$CE."','".$IN."')";
          $risultato = mysql_query($query) or die ($query);
-
-         $query = "SELECT id FROM clienti WHERE email='".$EM."'";
-         $risultato1 = mysql_query($query1) or die ($query1);
-		 
-		 $query = "INSERT INTO dati_accesso (username,password,id_cliente) ";
-         $query=$query."VALUES ('".$US."','".$PW."','".$risultato1."')";
-         $risultato = mysql_query($query) or die ($query);
-         $mess="<H4>Utente ".$US." in attesa di conferma</H4>"; 
+         $mess="<H4>Utente ".$US." registrato correttamente.</H4>"; 
       }
    }
 

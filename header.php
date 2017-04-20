@@ -16,18 +16,19 @@
 		
 		<DIV id='navbar'>
 			<a class='navbar_element' href='index.php'> Home </a>
-			<a class='' href='prodotti.php'>
-				<div class="dropdown">
-					prodotti
-					<div class="dropdown-content">
-						<?php
-							while($row = mysql_fetch_array($categorie))
-							{
-								echo "<a href='prodotti.php'>$row[0]</a>";
-							}
-						?>
-					</div>
-				</div>
+			<DIV class="dropdown">
+				<span><a class='' href='prodotti.php'>Categorie</a></span>
+				<div class="dropdown-content">
+					<?php
+					while($row = mysql_fetch_array($categorie))
+					{
+						//$_SESSION['cat'] = 
+						echo "<a href='prodotti.php'>$row[0]</a><br>";
+						
+					}
+					?>
+				</DIV>
+			</DIV>
 
 			<a class='navbar_element'> Chi siamo </a>
 			<a class='navbar_element'> Dove siamo </a>

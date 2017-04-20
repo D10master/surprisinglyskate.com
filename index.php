@@ -18,7 +18,7 @@
 		// costruiamo e poi effettuiamo
 		// la query per identificare l'utente
 		$query="";
-		$query=$query."SELECT id,username,password FROM dati_accesso ";
+		$query=$query."SELECT id,username,password FROM clienti ";
 		$query=$query."WHERE username='".$user."' AND password='".$pass."' ";
 
 		//echo $query."<br>";

@@ -192,15 +192,16 @@ input#search_button[type=submit]:hover
 
 #login_button
 {
+	display: inline-block;
 	font-size: 12pt;
 	font-weight: bold;
 	box-shadow: 5px 5px 20px rgba(0,0,0,0.7);
 	background-color: rgb(170,230,170);
 	position: relative;
-	left: 35%;
+	left: 36%;
 	border: 1px;
 	border-radius: 4px;
-	width:14.5%;
+	width:30%;
 	height:15%;
 	transition-property: background-color;
 	transition-duration: 0.6s;
@@ -214,15 +215,16 @@ input#search_button[type=submit]:hover
 
 #register_button
 {
+	display: inline-block;
 	font-size: 12pt;
 	font-weight: bold;
 	box-shadow: 5px 5px 20px rgba(0,0,0,0.7);
 	background-color: rgb(150,180,255);
 	position: relative;
-	left: 35%;
+	left: 36%;
 	border: 1px;
 	border-radius: 4px;
-	width:14.5%;
+	width:30%;
 	height:15%;
 	transition-property: background-color;
 	transition-duration: 0.6s;
@@ -281,63 +283,23 @@ input#search_button[type=submit]:hover
 }
 
 //dropdown elements
-.dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
 .dropdown {
     position: relative;
     display: inline-block;
-	background-color: #202020;
-    color: #EEEEEE;
-	border: 0px;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-    text-align: center;
-    padding: 16px 24px;
-	text-decoration: none;
-	transition: all 0.6s ease-in;
-}
-
-.dropdown: visited
-{
 	text-decoration: none;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
+	text-decoration: none;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
     z-index: 1;
 }
 
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
+.dropdown:hover .dropdown-content {
     display: block;
 }
-
-.dropdown-content a:hover
-{
-	text-decoration: none;
-	background-color: #EAEAEA
-}
-
-.dropdown:hover .dropdown-content
-{
-	text-decoration: none;
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-}
-

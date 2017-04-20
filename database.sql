@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2017 at 03:24 PM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 5.6.24
+-- Creato il: Apr 20, 2017 alle 09:35
+-- Versione del server: 10.1.16-MariaDB
+-- Versione PHP: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carte`
+-- Struttura della tabella `carte`
 --
 
 CREATE TABLE `carte` (
@@ -34,7 +34,7 @@ CREATE TABLE `carte` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorie`
+-- Struttura della tabella `categorie`
 --
 
 CREATE TABLE `categorie` (
@@ -44,7 +44,7 @@ CREATE TABLE `categorie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `categorie`
+-- Dump dei dati per la tabella `categorie`
 --
 
 INSERT INTO `categorie` (`id`, `nome`, `descrizione`) VALUES
@@ -60,11 +60,13 @@ INSERT INTO `categorie` (`id`, `nome`, `descrizione`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `clienti`
+-- Struttura della tabella `clienti`
 --
 
 CREATE TABLE `clienti` (
   `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
   `nome` varchar(50) NOT NULL,
   `cognome` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -73,36 +75,17 @@ CREATE TABLE `clienti` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `clienti`
+-- Dump dei dati per la tabella `clienti`
 --
 
-INSERT INTO `clienti` (`id`, `nome`, `cognome`, `email`, `cellulare`, `indirizzo`) VALUES
-(1, 'giacomo', 'caluso', 'g.c@gmail.com', '3459874564', 'via roma 10 torino 10127');
+INSERT INTO `clienti` (`id`, `username`, `password`, `nome`, `cognome`, `email`, `cellulare`, `indirizzo`) VALUES
+(0, 'dino', 'campa', 'dino', 'campana', 'd.c@gmail.com', '123456', 'via piazza 12'),
+(1, 'pino', '123', 'giacomo', 'caluso', 'g.c@gmail.com', '3459874564', 'via roma 10 torino 10127');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dati_accesso`
---
-
-CREATE TABLE `dati_accesso` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `id_cliente` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `dati_accesso`
---
-
-INSERT INTO `dati_accesso` (`id`, `username`, `password`, `id_cliente`) VALUES
-(1, 'pino', 'ciao', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `dettaglio_ordine`
+-- Struttura della tabella `dettaglio_ordine`
 --
 
 CREATE TABLE `dettaglio_ordine` (
@@ -114,7 +97,7 @@ CREATE TABLE `dettaglio_ordine` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `lingue`
+-- Struttura della tabella `lingue`
 --
 
 CREATE TABLE `lingue` (
@@ -126,7 +109,7 @@ CREATE TABLE `lingue` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ordini`
+-- Struttura della tabella `ordini`
 --
 
 CREATE TABLE `ordini` (
@@ -139,7 +122,7 @@ CREATE TABLE `ordini` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pagamento`
+-- Struttura della tabella `pagamento`
 --
 
 CREATE TABLE `pagamento` (
@@ -155,7 +138,7 @@ CREATE TABLE `pagamento` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prodotti`
+-- Struttura della tabella `prodotti`
 --
 
 CREATE TABLE `prodotti` (
@@ -169,7 +152,7 @@ CREATE TABLE `prodotti` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `prodotti`
+-- Dump dei dati per la tabella `prodotti`
 --
 
 INSERT INTO `prodotti` (`id`, `nome`, `immagine`, `produttore`, `prezzo`, `scorta`, `id_categoria`) VALUES
@@ -181,7 +164,7 @@ INSERT INTO `prodotti` (`id`, `nome`, `immagine`, `produttore`, `prezzo`, `scort
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prodotto_lingua`
+-- Struttura della tabella `prodotto_lingua`
 --
 
 CREATE TABLE `prodotto_lingua` (
@@ -192,56 +175,49 @@ CREATE TABLE `prodotto_lingua` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Indici per le tabelle scaricate
 --
 
 --
--- Indexes for table `carte`
+-- Indici per le tabelle `carte`
 --
 ALTER TABLE `carte`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `categorie`
+-- Indici per le tabelle `categorie`
 --
 ALTER TABLE `categorie`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `clienti`
+-- Indici per le tabelle `clienti`
 --
 ALTER TABLE `clienti`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `dati_accesso`
---
-ALTER TABLE `dati_accesso`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_cliente` (`id_cliente`);
-
---
--- Indexes for table `dettaglio_ordine`
+-- Indici per le tabelle `dettaglio_ordine`
 --
 ALTER TABLE `dettaglio_ordine`
   ADD KEY `id_ordine` (`id_ordine`),
   ADD KEY `id_prodotto` (`id_prodotto`);
 
 --
--- Indexes for table `lingue`
+-- Indici per le tabelle `lingue`
 --
 ALTER TABLE `lingue`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ordini`
+-- Indici per le tabelle `ordini`
 --
 ALTER TABLE `ordini`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_cliente` (`id_cliente`);
 
 --
--- Indexes for table `pagamento`
+-- Indici per le tabelle `pagamento`
 --
 ALTER TABLE `pagamento`
   ADD PRIMARY KEY (`id`),
@@ -249,17 +225,17 @@ ALTER TABLE `pagamento`
   ADD KEY `id_carta` (`id_carta`);
 
 --
--- Indexes for table `prodotti`
+-- Indici per le tabelle `prodotti`
 --
 ALTER TABLE `prodotti`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT per le tabelle scaricate
 --
 
 --
--- AUTO_INCREMENT for table `prodotti`
+-- AUTO_INCREMENT per la tabella `prodotti`
 --
 ALTER TABLE `prodotti`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
