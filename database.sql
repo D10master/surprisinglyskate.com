@@ -160,6 +160,21 @@ INSERT INTO `prodotti` (`id`, `nome`, `immagine`, `produttore`, `prezzo`, `scort
 (2, 'tavola plastica', 'tavola_plastica', 'ak47', '10.00', 2, 1),
 (3, 'grip verde', 'grip_verde', 'ak47', '2.00', 3, 2),
 (4, 'grip rosso', 'grip_rosso', 'ak47', '2.00', 4, 2);
+INSERT INTO `prodotti`(`nome`, `immagine`, `produttore`, `prezzo`, `scorta`, `id_categoria`) VALUES ("truck 140mm","truck_140mm","ak47",15,5,3);
+INSERT INTO `prodotti`(`nome`, `immagine`, `produttore`, `prezzo`, `scorta`, `id_categoria`) VALUES ("truck penny","truck_penny","ak47",10,3,3);
+INSERT INTO `prodotti`(`nome`, `immagine`, `produttore`, `prezzo`, `scorta`, `id_categoria`) VALUES ("grip nero","grip_nero","ak47",2,4,2);
+INSERT INTO `prodotti`(`nome`, `immagine`, `produttore`, `prezzo`, `scorta`, `id_categoria`) VALUES ("tavola colorata","tavola_colorata","ak47",15,4,1);
+INSERT INTO `prodotti`(`nome`, `immagine`, `produttore`, `prezzo`, `scorta`, `id_categoria`) VALUES ("ruote fantasia","ruote_fantasia","ak47",5,5,4);
+INSERT INTO `prodotti`(`nome`, `immagine`, `produttore`, `prezzo`, `scorta`, `id_categoria`) VALUES ("ruote nere","ruote_nere","ak47",5,3,4);
+INSERT INTO `prodotti`(`nome`, `immagine`, `produttore`, `prezzo`, `scorta`, `id_categoria`) VALUES ("ruote plastica","ruote_plastica","ak47",3,4,4);
+INSERT INTO `prodotti`(`nome`, `immagine`, `produttore`, `prezzo`, `scorta`, `id_categoria`) VALUES ("ruote rampa","ruote_rampa","ak47",6,5,5);
+INSERT INTO `prodotti`(`nome`, `immagine`, `produttore`, `prezzo`, `scorta`, `id_categoria`) VALUES ("cuscinetti sfera","cuscinetti_sfera","ak47",8,5,6);
+INSERT INTO `prodotti`(`nome`, `immagine`, `produttore`, `prezzo`, `scorta`, `id_categoria`) VALUES ("cuscinetti standard","cuscinetti_standard","ak47",8,3,6);
+INSERT INTO `prodotti`(`nome`, `immagine`, `produttore`, `prezzo`, `scorta`, `id_categoria`) VALUES ("bulloni blu","bulloni_blu","ak47",1,4,7);
+INSERT INTO `prodotti`(`nome`, `immagine`, `produttore`, `prezzo`, `scorta`, `id_categoria`) VALUES ("bulloni giallo","bulloni_giallo","ak47",1,4,7);
+INSERT INTO `prodotti`(`nome`, `immagine`, `produttore`, `prezzo`, `scorta`, `id_categoria`) VALUES ("bulloni rosso","bulloni_rosso","ak47",1,4,7);
+INSERT INTO `prodotti`(`nome`, `immagine`, `produttore`, `prezzo`, `scorta`, `id_categoria`) VALUES ("riser indipendent","riser_indipendent","ak47",7,5,8);
+INSERT INTO `prodotti`(`nome`, `immagine`, `produttore`, `prezzo`, `scorta`, `id_categoria`) VALUES ("riser pig","riser_pig","ak47",7,4,8);
 
 -- --------------------------------------------------------
 
