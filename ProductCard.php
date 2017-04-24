@@ -15,14 +15,15 @@
 .image {
   display: block;
   width: 100%;
+  height:100%;
 
 }
 
-.top {
-  display: block;
+.top
+{
   position: relative;
-  width: auto;
-  height:auto;
+  width: 100%;
+  height:80%;
 }
 
 .top:hover .overlay
@@ -89,6 +90,7 @@
 	font-size: 16pt;
 	font-weight: bold;
 	margin: 5px;
+	z-index:10;
 }
 
 .producer
