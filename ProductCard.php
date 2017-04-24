@@ -114,11 +114,12 @@
 </STYLE>
 
 <?php
+
 	class ProductCard
 	{
 		public $name="";
 		public $description="";
-		public $image;
+		public $image="";
 		public $price;
 		public $producer="";
 		public $category="";
@@ -129,7 +130,7 @@
 			echo"<a href=''>";
 				echo"<div class='product_card' href=''>";
 					echo"<div class='top'>";
-						echo"<image class='image' src='media/immagini/skate.jpg'>";
+						echo"<image class='image' src='media/immagini/".$image.".jpg'>";
 						echo"<div class='overlay'>";
 							echo"<span class='price'>".$price."$</span>";
 							echo"<span class='description'>".$description."</span>";
