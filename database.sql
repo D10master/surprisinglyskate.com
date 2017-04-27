@@ -155,6 +155,13 @@ CREATE TABLE `prodotti` (
 -- Dump dei dati per la tabella `prodotti`
 --
 
+ALTER TABLE `prodotti`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `prodotti`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  
+  
 INSERT INTO `prodotti` (`id`, `nome`, `immagine`, `produttore`, `prezzo`, `scorta`, `id_categoria`) VALUES
 (1, 'tavola legno di noce', 'tavola_legno', 'ak47', '20.00', 4, 1),
 (2, 'tavola plastica', 'tavola_plastica', 'ak47', '10.00', 2, 1),
@@ -242,18 +249,17 @@ ALTER TABLE `pagamento`
 --
 -- Indici per le tabelle `prodotti`
 --
-ALTER TABLE `prodotti`
-  ADD PRIMARY KEY (`id`);
+
 
 --
 -- AUTO_INCREMENT per le tabelle scaricate
 --
-
+ALTER TABLE `clienti`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT per la tabella `prodotti`
 --
-ALTER TABLE `prodotti`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

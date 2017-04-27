@@ -4,13 +4,13 @@
 	include ('ProductCard.php');
 
 	$query="";
-	$query=$query."SELECT id,nome,prezzo,produttore,immagine FROM prodotti ";
+	$query=$query."SELECT id,nome,prezzo,produttore,immagine,descrizione FROM prodotti ";
 
 
 	if(isset($_POST['cerca_categoria']))
 	{
 		$query="";
-		$query=$query."SELECT id,nome,prezzo,produttore,immagine FROM prodotti ";
+		$query=$query."SELECT id,nome,prezzo,produttore,immagine,descrizione FROM prodotti ";
 		$query=$query."WHERE id_categoria='".$_POST['categoria']."'";
 	}
 
@@ -18,7 +18,7 @@
 	if(isset($_POST['search_button']))
 	{
 		$query="";
-		$query=$query."SELECT id,nome,prezzo,produttore,immagine FROM prodotti ";
+		$query=$query."SELECT id,nome,prezzo,produttore,immagine,descrizione FROM prodotti ";
 		$query=$query."WHERE nome LIKE '%".$_POST['search_field']."%'";
 	}
 
@@ -30,13 +30,13 @@
 	while($row = mysql_fetch_array($rcategorie)){
 		if(isset($_POST['cat_tutte'])){
 			$query="";
-			$query=$query."SELECT p.id,p.nome,p.prezzo,p.produttore,p.immagine FROM prodotti as p ";
+			$query=$query."SELECT p.id,p.nome,p.prezzo,p.produttore,p.immagine,p.descrizione FROM prodotti as p ORDER BY nome; ";
 		}
 		
 		if(isset($_POST[$row['nome']]))
 		{
 			$query="";
-			$query=$query."SELECT p.id,p.nome,p.prezzo,p.produttore,p.immagine FROM prodotti as p ";
+			$query=$query."SELECT p.id,p.nome,p.prezzo,p.produttore,p.immagine,p.descrizione FROM prodotti as p ";
 			$query=$query."INNER JOIN categorie ";
 			$query=$query."ON p.id_categoria = categorie.id ";
 			$query=$query."WHERE categorie.nome ='".$_POST[$row['nome']]."'";
@@ -74,8 +74,9 @@
 					$nome = $array['nome'];
 					$prezzo =  $array['prezzo'];
 					$produttore = $array['produttore'];
+					$descrizione = $array['descrizione'];
 					$image = $array['immagine']; 
-					$product = new ProductCard($nome,"",$image,$prezzo,"","",11);
+					$product = new ProductCard($nome,$descrizione,$image,$prezzo,"","",11);
 				}
 			}
 
