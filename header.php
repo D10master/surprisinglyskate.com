@@ -35,7 +35,7 @@
 			</DIV>
 
 			<a class='navbar_element'> Chi siamo </a>
-			<a class='navbar_element'> Dove siamo </a>
+			<a class='navbar_element' href='where.php'> Dove siamo </a>
 			<button class='navbar_element' onclick='openLogin()'> Login </button>
 		</DIV>
 	</DIV>
